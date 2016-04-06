@@ -1,3 +1,3 @@
 #!/bin/sh
 
-git rev-parse HEAD >> config.log
+git rev-parse HEAD >> ~/.bempp-conda.git-rev
