@@ -1,1 +1,1 @@
-eg/run_test.py
+../eg/run_test.py
