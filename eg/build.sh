@@ -5,22 +5,22 @@ mycmake=/usr/bin/cmake
 mkdir -p build
 cd build
 
-echo '# configuration output' | tee config.log
+echo '# configuration output' >> config.log
 
-which $mycmake | tee config.log
-$mycmake --version | tee config.log
+which $mycmake >> config.log
+$mycmake --version >> config.log
 
-which make | tee config.log
-make --version | tee config.log
+which make >> config.log
+make --version >> config.log
 
-which cc | tee config.log
-cc --version | tee config.log
+which cc >> config.log
+cc --version >> config.log
 
-which c++ | tee config.log
-c++ --version | tee config.log
+which c++ >> config.log
+c++ --version >> config.log
 
-which ld | tee config.log
-ld --version | tee config.log
+which ld >> config.log
+ld --version >> config.log
 
 echo 'check config done.'
 
