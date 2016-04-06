@@ -12,7 +12,7 @@ Please, give a look at:
  - http://conda.pydata.org/miniconda.html
  - http://conda.pydata.org/docs/install/quick.html
 
-In short, just run
+In short, just run,
 
 ```
     $ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -22,17 +22,34 @@ In short, just run
 then ENTER, then q, then yes then ENTER then yes
 and that's all.
 
+Then you need the special build package from conda,
+
+```
+    $ conda install conda-build --yes
+```
+
+About version of Python
+-----------------------
+
+At the building step, you can specify the version of Python 2 ou 3.
+However, you might remember then when you install it.
+
+By default, everything is Python 3.
+
+Note
+----
+
+You can also `update` the conda environment before doing anything,
+
+```
+    $ conda update --all
+```
+
 
 How to build
 ============
 
-Once `conda-build` installed by,
-
-```
-    $ conda install conda-build
-```
-
-you only have to run,
+Once `conda-build` installed, you only have to run,
 
 ```
     $ cd VERSION/
@@ -47,18 +64,57 @@ by defautl `path/to/{mini}conda/conda-bld/work/{VERSION/}build/`
 especially the `config.log`, `cmake.log` and `make.log`.
 
 
+
 Note
 ----
 
 The files `build.sh`
-and all the python test files are created by this script.
+and all the python test files are created by this script,
 
 ```
 #!/bin/sh
 
-cat eg/laplace.py eg/scattering.py eg/maxwell.py > eg/run_test.py
+cat eg/bempp_tests.py eg/laplace.py eg/scattering.py eg/maxwell.py > eg/run_test.py
 
 cd VERSION/
 ln -s ../eg/run_test.py .
 ln -s ../eg/build.sh .
+```
+
+How to install the new built `bempp` package
+============================================
+
+Once bempp built, and if `TEST` passed,
+then you can locally use it.
+
+Recommanded
+-----------
+
+Create `conda environment`, e.g.,
+
+```
+    $ conda create -n my-name bempp --use-local --yes
+```
+
+Then, you switch to this environment to use it,
+
+```
+    $ source activate my-name
+```
+
+And just try to launch `ipython` and import `bempp.api`.
+
+Further readings about conda
+----------------------------
+
+Give a look at http://conda.pydata.org/docs/index.html
+
+
+Less recommanded
+----------------
+
+Install in the root conda environment,
+
+```
+    $ conda install bempp --use-local --yes
 ```

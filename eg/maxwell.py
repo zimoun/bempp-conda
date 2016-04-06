@@ -168,6 +168,8 @@ squared_field_density = np.real(np.sum(field_data * field_data.conj(), axis=0))
 
 # Finally, we can plot everything using a simple Matplotlib plot.
 
+print('  -> bempp computations done.')
+
 # In[15]:
 
 # get_ipython().magic('matplotlib inline')
@@ -176,11 +178,13 @@ from matplotlib import pyplot as plt
 # Adjust the figure size in IPython
 matplotlib.rcParams['figure.figsize'] = (10.0, 8.0)
 
+fig = plt.figure()
 plt.imshow(squared_field_density.reshape((nx,nz)).T,
            cmap='coolwarm', origin='lower',
            extent=[-extent, extent, -extent,extent])
 plt.colorbar()
 plt.title("Squared Electric Field Density")
 #plt.show(block=False)
+fig.savefig('maxwell.png',  bbox_inches='tight')
 
 print('\n passed. DONE \n')
