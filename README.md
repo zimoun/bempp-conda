@@ -58,6 +58,7 @@ and all the python test files are created by this script.
 
 cat eg/laplace.py eg/scattering.py eg/maxwell.py > eg/run_test.py
 
-ln eg/run_test.py VERSION/run_test.py
-ln eg/build.sh VERSION/build.sh
+cd VERSION/
+ln -s ../eg/run_test.py .
+ln -s ../eg/build.sh .
 ```

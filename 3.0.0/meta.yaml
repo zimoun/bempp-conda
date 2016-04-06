@@ -30,11 +30,11 @@ test:
     imports:
         - bempp
         - bempp.api
-    commands:
-        - python laplace.py
-        - python scattering.py
-        - python oscr.py
-        - python maxwell.py
+    # commands:
+    #     - python laplace.py
+    #     - python scattering.py
+    #     - python oscr.py
+    #     - python maxwell.py
 
 
 about:
