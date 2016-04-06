@@ -1,14 +1,16 @@
 
 
-Bem++ is really sensitive about the version of the dependencies.
+[Bem++](http://www.bempp.org)
+is really sensitive about the version of the dependencies.
+
 Therefore, it is possible that these recipes do not work as they are.
 
 How to download and install Miniconda
 =====================================
 
 Please, give a look at:
-[http://conda.pydata.org/miniconda.html]
-[http://conda.pydata.org/docs/install/quick.html]
+ - http://conda.pydata.org/miniconda.html
+ - http://conda.pydata.org/docs/install/quick.html
 
 In short, just run
 
