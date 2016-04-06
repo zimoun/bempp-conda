@@ -1,0 +1,43 @@
+package:
+    name: bempp
+    version: "3.master"
+
+build:
+    number: 0
+
+source:
+    git_url: https://github.com/bempp/bempp
+    git_rev: master
+
+requirements:
+    build:
+    # CMake: version higher than 3.4 breaks the compilation of Dune
+    # CMake: version different that 3.0.2 leads to troubles with TBB
+    # - name ==3.5
+    # - foo <2.8
+        - python #==3.5.0
+        - system
+        - cython
+        - numpy
+
+    run :
+        - ipython
+        - numpy
+        - scipy
+        - matplotlib
+        - pyqt
+
+test:
+    imports:
+        - bempp
+        - bempp.api
+    # commands:
+    #     - python laplace.py
+    #     - python scattering.py
+    #     - python oscr.py
+    #     - python maxwell.py
+
+about:
+    home: http://www.bempp.org/
+    license: MIT
+    summary: BEM++ - Python boundary element library
