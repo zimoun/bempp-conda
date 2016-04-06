@@ -162,6 +162,8 @@ u_evaluated[idx] = res.flat
 
 u_evaluated=u_evaluated.reshape((Nx, Ny))
 
+print('  -> bempp computations done.')
+
 # get_ipython().magic('matplotlib inline')
 # Plot the image
 from matplotlib import pyplot as plt
@@ -172,5 +174,6 @@ plt.ylabel('y')
 plt.colorbar()
 plt.title("Scattering from the unit sphere, solution in plane z=0")
 #plt.show(block=False)
+fig.savefig('scattering.png',  bbox_inches='tight')
 
 print('\n passed. DONE \n')

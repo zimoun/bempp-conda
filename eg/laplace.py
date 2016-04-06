@@ -148,14 +148,18 @@ u_evaluated = u_evaluated.reshape((n_grid_points,n_grid_points))
 radius = np.sqrt(plot_grid[0]**2+plot_grid[1]**2)
 u_evaluated[radius>1] = np.nan
 
+print('  -> bempp computations done.')
+
 # Plot the image
 import matplotlib
 matplotlib.rcParams['figure.figsize'] = (5.0, 4.0) # Adjust the figure size in IPython
 
 from matplotlib import pyplot as plt
 
+fig = plt.figure()
 plt.imshow(np.log(np.abs(u_evaluated.T)), extent=(-1,1,-1,1),origin='lower')
 plt.title('Computed solution')
 #plt.show(block=False)
+fig.savefig('laplace.png',  bbox_inches='tight')
 
 print('\n passed. DONE \n')

@@ -74,7 +74,7 @@ and all the python test files are created by this script,
 ```
 #!/bin/sh
 
-cat eg/laplace.py eg/scattering.py eg/maxwell.py > eg/run_test.py
+cat eg/bempp_tests.py eg/laplace.py eg/scattering.py eg/maxwell.py > eg/run_test.py
 
 cd VERSION/
 ln -s ../eg/run_test.py .
