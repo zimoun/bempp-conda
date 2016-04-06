@@ -15,8 +15,8 @@ Please, give a look at:
 In short, just run
 
 ```
- $ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-  $ bash Miniconda3-latest-Linux-x86_64.sh
+    $ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    $ bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
 then ENTER, then q, then yes then ENTER then yes
