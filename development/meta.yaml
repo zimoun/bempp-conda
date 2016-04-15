@@ -1,6 +1,6 @@
 package:
     name: bempp
-    version: "3.master"
+    version: "3.dev"
 
 build:
     number: 0
