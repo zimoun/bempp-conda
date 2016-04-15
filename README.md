@@ -31,8 +31,8 @@ Then you need the special build package from conda,
 About version of Python
 -----------------------
 
-At the building step, you can specify the version of Python 2 ou 3.
-However, you might remember then when you install it.
+At the building step, you can specify the version of Python 2 or 3.
+However, you might then remember when you install it.
 
 By default, everything is Python 3.
 
@@ -59,8 +59,8 @@ Once `conda-build` installed, you only have to run,
 where `VERSION` is ... the version that you want to build.
 And then pray.
 
-All the logging file are in you `conda` install,
-by defautl `path/to/{mini}conda/conda-bld/work/{VERSION/}build/`
+All the logging files are in you `conda` install,
+by default `path/to/{mini}conda/conda-bld/work/{VERSION/}build/`
 especially the `config.log`, `cmake.log` and `make.log`.
 
 
@@ -87,7 +87,7 @@ How to install the new built `bempp` package
 Once bempp built, and if `TEST` passed,
 then you can locally use it.
 
-Recommanded
+Recommended
 -----------
 
 Create `conda environment`, e.g.,
@@ -110,7 +110,7 @@ Further readings about conda
 Give a look at http://conda.pydata.org/docs/index.html
 
 
-Less recommanded
+Less recommended
 ----------------
 
 Install in the root conda environment,
