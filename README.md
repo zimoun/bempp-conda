@@ -5,6 +5,9 @@ is really sensitive about the version of the dependencies.
 
 Therefore, it is possible that these recipes do not work as they are.
 
+Works on Linux: Ubuntu LTS and Debian stable/testing.
+
+
 How to download and install Miniconda
 =====================================
 
@@ -118,3 +121,17 @@ Install in the root conda environment,
 ```
     $ conda install bempp --use-local --yes
 ```
+
+Issues (versions)
+======
+
+Using these versions, we are able to compile and pass the tests
+[![Build Status](https://travis-ci.org/zimoun/bempp.svg?branch=eg-travis)](https://travis-ci.org/zimoun/bempp)
+
+ + CMake needs to be < 3.5
+ + Boost: ?
+ + TBB: release tbb43_20150209oss_lin.tgz
+ + Dune: 2.3.1
+
+If the error message is cryptic when you are trying to compile,
+then give a look to these dependencies.
