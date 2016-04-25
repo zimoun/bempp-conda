@@ -4,6 +4,8 @@
 is really sensitive about the version of the dependencies.
 
 Therefore, it is possible that these recipes do not work as they are.
+(tested with Debian stable and testing, and Ubuntun LTS 14)
+
 
 How to download and install Miniconda
 =====================================
