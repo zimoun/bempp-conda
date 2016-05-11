@@ -68,9 +68,11 @@ All the logging files are in you `conda` install,
 by default `path/to/{mini}conda/conda-bld/work/{VERSION/}build/`
 especially the `config.log`, `cmake.log` and `make.log`.
 
+It is really sensitive and should not work, see below.
 
 
-Note
+
+Note (reminder to me)
 ----
 
 The files `build.sh`
@@ -85,6 +87,7 @@ cd VERSION/
 ln -s ../eg/run_test.py .
 ln -s ../eg/build.sh .
 ```
+
 
 How to install the new built `bempp` package
 ============================================
@@ -127,7 +130,7 @@ Install in the root conda environment,
 Issues (versions)
 ======
 
-Using these versions, we are able to compile and pass the tests
+- Using these versions, we are able to compile and pass the tests
 [![Build Status](https://travis-ci.org/zimoun/bempp.svg?branch=eg-travis)](https://travis-ci.org/zimoun/bempp)
 
  + CMake needs to be < 3.5
@@ -137,3 +140,8 @@ Using these versions, we are able to compile and pass the tests
 
 If the error message is cryptic when you are trying to compile,
 then give a look to these dependencies.
+
+- Special files are created but not deployed from the building tree,
+e.g., `build/bin/ibempp`
+Running these files allows the access to special import, such that
+some low-level quadrature rules. I am working on it...
