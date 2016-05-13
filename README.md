@@ -40,6 +40,10 @@ At the building step, you can specify the version of Python 2 or 3.
 However, you might then remember when you install it.
 
 By default, everything is Python 3.
+And you should move to Pyhton 3 (see
+[PEP 373](https://www.python.org/dev/peps/pep-0373)
+and [PEP 404](https://www.python.org/dev/peps/pep-0404))
+
 
 Note
 ----
@@ -70,7 +74,23 @@ especially the `config.log`, `cmake.log` and `make.log`.
 
 It is really sensitive and should not work, see below.
 
+Note
+----
 
+By default, `conda` fetches `numpy` with the `MKL` support
+(see [there](https://docs.continuum.io/mkl-optimizations/index)).
+However, you need to have Intel processor, otherwise it will be
+slower.
+
+To desactivate the `MKL` support, you need to edit the `meta.yaml`
+file of the considered version, then you need to add `nomkl` at both
+place, i.e., write `- nomkl` after `- numpy`.
+
+How to check your processor, type in a terminal:
+```
+   $ cat /proc/cpuinfo | grep -e 'model name'
+```
+otherwise, look for around the flags.
 
 Note (reminder to me)
 ----
