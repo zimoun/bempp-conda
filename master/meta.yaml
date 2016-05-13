@@ -19,6 +19,7 @@ requirements:
         - system
         - cython
         - numpy
+        - mkl
 
     run :
         - ipython
@@ -26,6 +27,7 @@ requirements:
         - scipy
         - matplotlib
         - pyqt
+        - mkl
 
 test:
     imports:
