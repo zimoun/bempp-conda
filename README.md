@@ -4,10 +4,20 @@
 is really sensitive about the version of the dependencies.
 
 Therefore, it is possible that these recipes do not work as they are.
-(tested with Debian stable and testing, and Ubuntun LTS 14)
 
+Tested on Linux: Ubuntu LTS 14 and Debian stable/testing.
 
-Works on Linux: Ubuntu LTS and Debian stable/testing.
+3 Steps
+-------
+
+ - First Install Miniconda and the required tools
+ - Second, clone the repo
+ ```
+     $ git clone https://github.com/zimoun/bempp-conda.git
+     $ cd bempp-conda
+```
+ - Third, build
+ - Fourth, install (locally in the miniconda environment)
 
 
 How to download and install Miniconda
@@ -37,18 +47,19 @@ About version of Python
 -----------------------
 
 At the building step, you can specify the version of Python 2 or 3.
-However, you might then remember when you install it.
+However, you might then remember which one you have chosen at the
+install step.
 
-By default, everything is Python 3.
-And you should move to Pyhton 3 (see
-[PEP 373](https://www.python.org/dev/peps/pep-0373)
-and [PEP 404](https://www.python.org/dev/peps/pep-0404))
+*By default, everything is Python 3.*
+And you should move to Pyhton 3 if you have not already
+(see [PEP 373](https://www.python.org/dev/peps/pep-0373)
+and [PEP 404](https://www.python.org/dev/peps/pep-0404)).
 
 
 Note
 ----
 
-You can also `update` the conda environment before doing anything,
+You should also `update` the conda environment before doing anything,
 
 ```
     $ conda update --all
@@ -58,11 +69,12 @@ You can also `update` the conda environment before doing anything,
 How to build
 ============
 
-Once `conda-build` installed, you only have to run,
+Once `conda-build` installed,
+and if you are inside the `bempp-conda` folder previously cloned,
+the you only have to run,
 
 ```
-    $ cd VERSION/
-    $ conda build .
+    $ conda build VERSION
 ```
 
 where `VERSION` is ... the version that you want to build.
@@ -163,5 +175,5 @@ then give a look to these dependencies.
 
 - Special files are created but not deployed from the building tree,
 e.g., `build/bin/ibempp`
-Running these files allows the access to special import, such that
+Running these files allows the access to special `import`, such that
 some low-level quadrature rules. I am working on it...
