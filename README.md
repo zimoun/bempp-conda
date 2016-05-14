@@ -5,17 +5,19 @@ is really sensitive about the version of the dependencies.
 
 Therefore, it is possible that these recipes do not work as they are.
 
-Tested on Linux: Ubuntu LTS 14 and Debian stable/testing.
+**Tested on Linux**: Ubuntu LTS 14 and Debian stable/testing.
 
-3 Steps
+4 Steps
 -------
 
  - First Install Miniconda and the required tools
  - Second, clone the repo
+
  ```
      $ git clone https://github.com/zimoun/bempp-conda.git
      $ cd bempp-conda
 ```
+
  - Third, build
  - Fourth, install (locally in the miniconda environment)
 
@@ -34,7 +36,7 @@ In short, just run,
     $ bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
-then ENTER, then q, then yes then ENTER then yes
+then `ENTER`, then `q`, then `yes` then `ENTER` then `yes`
 and that's all.
 
 Then you need the special build package from conda,
@@ -42,19 +44,6 @@ Then you need the special build package from conda,
 ```
     $ conda install conda-build --yes
 ```
-
-About version of Python
------------------------
-
-At the building step, you can specify the version of Python 2 or 3.
-However, you might then remember which one you have chosen at the
-install step.
-
-*By default, everything is Python 3.*
-And you should move to Pyhton 3 if you have not already
-(see [PEP 373](https://www.python.org/dev/peps/pep-0373)
-and [PEP 404](https://www.python.org/dev/peps/pep-0404)).
-
 
 Note
 ----
@@ -64,6 +53,18 @@ You should also `update` the conda environment before doing anything,
 ```
     $ conda update --all
 ```
+
+About Python's version
+======================
+
+At the building step, you can specify the version of Python 2 or 3.
+However, you might then remember which one you have chosen at the
+install step.
+
+**By default, everything is Python 3.**
+And you should move to Pyhton 3 if you have not already
+(see [PEP 373](https://www.python.org/dev/peps/pep-0373)
+and [PEP 404](https://www.python.org/dev/peps/pep-0404)).
 
 
 How to build
