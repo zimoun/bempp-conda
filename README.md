@@ -18,12 +18,12 @@ Therefore, it is possible that these recipes do not work as they are.
      $ cd bempp-conda
 ```
 
- - Third, build
+ - Third, build (the tricky part)
  - Fourth, install (locally in the miniconda environment)
 
 
-How to download and install Miniconda
-=====================================
+Step 1: How to download and install Miniconda
+=============================================
 
 Please, give a look at:
  - http://conda.pydata.org/miniconda.html
@@ -48,7 +48,7 @@ Then you need the special build package from conda,
 Note
 ----
 
-You should also `update` the conda environment before doing anything,
+You should also `update` all the conda system before doing anything,
 
 ```
     $ conda update --all
@@ -62,17 +62,17 @@ However, you might then remember which one you have chosen at the
 install step.
 
 **By default, everything is Python 3.**
-And you should move to Pyhton 3 if you have not already
+And you should move to Pyhton 3 if you have not already done
 (see [PEP 373](https://www.python.org/dev/peps/pep-0373)
 and [PEP 404](https://www.python.org/dev/peps/pep-0404)).
 
 
-How to build
-============
+Step 2: How to build
+====================
 
 Once `conda-build` installed,
 and if you are inside the `bempp-conda` folder previously cloned,
-the you only have to run,
+then you only have to run,
 
 ```
     $ conda build VERSION
@@ -92,18 +92,18 @@ Note
 
 By default, `conda` fetches `numpy` with the `MKL` support
 (see [there](https://docs.continuum.io/mkl-optimizations/index)).
-However, you need to have Intel processor, otherwise it will be
+However, you need to have Intel processor, otherwise it should be
 slower.
 
 To desactivate the `MKL` support, you need to edit the `meta.yaml`
-file of the considered version, then you need to add `nomkl` at both
-place, i.e., write `- nomkl` after `- numpy`.
+file of the considered version, then you need to switch to `nomkl`
+at both place, i.e., write `- nomkl` instead of `- mkl`.
 
 How to check your processor, type in a terminal:
 ```
    $ cat /proc/cpuinfo | grep -e 'model name'
 ```
-otherwise, look for around the flags.
+otherwise, look for around the flags inside the file `/proc/cpuinfo`.
 
 Note (reminder to me)
 ----
@@ -122,8 +122,8 @@ ln -s ../eg/build.sh .
 ```
 
 
-How to install the new built `bempp` package
-============================================
+Step 4: How to install the new built `bempp` package
+====================================================
 
 Once bempp built, and if `TEST` passed,
 then you can locally use it.
@@ -160,10 +160,11 @@ Install in the root conda environment,
     $ conda install bempp --use-local --yes
 ```
 
-Issues (versions)
+Issues
 ======
 
-- Using these versions, we are able to compile and pass the tests
+- **The versions of the dependencies.**
+Using these versions, we are able to compile and pass the tests
 [![Build Status](https://travis-ci.org/zimoun/bempp.svg?branch=eg-travis)](https://travis-ci.org/zimoun/bempp)
 
  + CMake needs to be < 3.5
@@ -171,7 +172,7 @@ Issues (versions)
  + TBB: release tbb43_20150209oss_lin.tgz
  + Dune: 2.3.1
 
-If the error message is cryptic when you are trying to compile,
+If the error message is cryptic when you are trying to compile/build,
 then give a look to these dependencies.
 
 - Special files are created but not deployed from the building tree,
