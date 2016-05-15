@@ -12,12 +12,6 @@ Therefore, it is possible that these recipes do not work as they are.
 
  - First Install Miniconda and the required tools
  - Second, clone the repo
-
- ```
-     $ git clone https://github.com/zimoun/bempp-conda.git
-     $ cd bempp-conda
-```
-
  - Third, build (the tricky part)
  - Fourth, install (locally in the miniconda environment)
 
@@ -66,8 +60,17 @@ And you should move to Pyhton 3 if you have not already done
 (see [PEP 373](https://www.python.org/dev/peps/pep-0373)
 and [PEP 404](https://www.python.org/dev/peps/pep-0404)).
 
+Step 2: How to clone the repo
+=============================
 
-Step 2: How to build
+Type in a terminal,
+
+```
+     $ git clone https://github.com/zimoun/bempp-conda.git
+     $ cd bempp-conda
+```
+
+Step 3: How to build
 ====================
 
 Once `conda-build` installed,
