@@ -48,18 +48,6 @@ You should also `update` all the conda system before doing anything,
     $ conda update --all
 ```
 
-About Python's version
-======================
-
-At the building step, you can specify the version of Python 2 or 3.
-However, you might then remember which one you have chosen at the
-install step.
-
-**By default, everything is Python 3.**
-And you should move to Pyhton 3 if you have not already done
-(see [PEP 373](https://www.python.org/dev/peps/pep-0373)
-and [PEP 404](https://www.python.org/dev/peps/pep-0404)).
-
 Step 2: How to clone the repo
 =============================
 
@@ -107,22 +95,6 @@ How to check your processor, type in a terminal:
    $ cat /proc/cpuinfo | grep -e 'model name'
 ```
 otherwise, look for around the flags inside the file `/proc/cpuinfo`.
-
-Note (reminder to me)
-----
-
-The files `build.sh`
-and all the python test files are created by this script,
-
-```
-#!/bin/sh
-
-cat eg/bempp_tests.py eg/laplace.py eg/scattering.py eg/maxwell.py > eg/run_test.py
-
-cd VERSION/
-ln -s ../eg/run_test.py .
-ln -s ../eg/build.sh .
-```
 
 
 Step 4: How to install the new built `bempp` package
@@ -182,3 +154,33 @@ then give a look to these dependencies.
 e.g., `build/bin/ibempp`
 Running these files allows the access to special `import`, such that
 some low-level quadrature rules. I am working on it...
+
+About Python's version
+======================
+
+At the building step, you can specify the version of Python 2 or 3.
+However, you might then remember which one you have chosen at the
+install step.
+
+**By default, everything is Python 3.**
+And you should move to Pyhton 3 if you have not already done
+(see [PEP 373](https://www.python.org/dev/peps/pep-0373)
+and [PEP 404](https://www.python.org/dev/peps/pep-0404)).
+
+Reminder to me
+==============
+
+The files `build.sh`
+and all the python test files are created by this script,
+
+```
+#!/bin/sh
+
+cat eg/bempp_tests.py eg/laplace.py eg/scattering.py eg/maxwell.py > eg/run_test.py
+
+cd VERSION/
+ln -s ../eg/run_test.py .
+ln -s ../eg/build.sh .
+```
+
+Improve the `mkl/nomkl` swicth.
