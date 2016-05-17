@@ -19,11 +19,11 @@ branches:
 before_install:
     - sudo apt-get update -qq
     - sudo apt-get install unzip -qq -y
+
     - sudo apt-get install g++ -qq -y
     - sudo apt-get install cmake git make -qq -y
     - sudo apt-get install python-dev -qq -y
-## TravisCI uses virtualenv and APT does not work
-## instead fix with use this ugly hack using conda
+
     - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh -q
     - chmod +x miniconda.sh
     - ./miniconda.sh -b -p $HOME/miniconda
@@ -41,7 +41,8 @@ before_install:
 #
 #
 before_script:
-    - bash .compile_hack_to_bypass_log_limit.sh
+
+    #- bash .compile_hack_to_bypass_log_limit.sh
 #
 #
 # ##### Done from scratch.
@@ -51,7 +52,7 @@ before_script:
 #
 #
 script:
-    - travis_wait conda build master --python 3.5 > conda.log
+    - conda build master --python 3.5 > conda.log
 #
 #
 # ##### Done.

@@ -1,10 +1,19 @@
 #!/bin/bash
 
+# hack
 error_handler() {
-    echo "ERROR !!"
+    echo "##############################################"
+    echo "ERROR !! tail -n 1000 out.log"
     tail -n 1000 out.log
+    kill $PING_LOOP_PID
+    echo "#while true killed."
+    echo "##############################################"
 }
 trap 'error_handler' ERR
+
+bash -c "while true; do echo $(date); sleep 9m; done" &
+PING_LOOP_PID=$!
+# end
 
 # ###### Compile bempp from scratch
 #
@@ -15,8 +24,8 @@ python -c 'import scipy'
 ## same test about cython ?
 conda install cython=0.23.4 -y -q
 
-wget -q https://github.com/bempp/bempp/archive/master.zip
-unzip -qq master.zip && cd bempp-master
+wget https://github.com/bempp/bempp/archive/master.tar.gz -q
+tar -xzf master.tar.gz && cd bempp-master
 
 # ###### step 1: build
 #    ## travis_wait avoids time out when downloading
@@ -27,17 +36,17 @@ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/miniconda
 
 # Building all the dependencies
 echo "###################TBB..."
-make TBB &1> out.log
+make TBB 1> out.log
 echo "###################TBB done."
 echo "###################Boost..."
-make Boost &1> out.log
+make Boost 1> out.log
 echo "###################Boost done."
 echo "###################Dune..."
-make Dune &1> out.log
+make Dune 1> out.log
 echo "###################Dune done."
 
 # the effective build
-make > out.log
+make 1> out.log
 
 # ###### step 2: install
 
@@ -61,3 +70,5 @@ cd ../..
 #
 #
 # ##### Done from scratch.
+
+kill $PING_LOOP_PID
