@@ -11,9 +11,9 @@ virtualenv:
 
 branches:
     only:
-        - eg-travis
-    except:
         - master
+    except:
+        - eg-other
 
 
 before_install:
