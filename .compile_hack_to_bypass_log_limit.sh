@@ -37,7 +37,7 @@ make Dune &1> out.log
 echo "###################Dune done."
 
 # the effective build
-make
+make > out.log
 
 # ###### step 2: install
 
