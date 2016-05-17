@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# number of threads pass to GNU Make
+# at compile time
+N=1
+
 mycmake=/usr/bin/cmake
 
 mkdir -p build
@@ -29,7 +33,7 @@ $mycmake \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     .. | tee cmake.log 2>&1
 
-make -j \
+make -j $N \
     | tee make.log 2>&1
 
 make install \
