@@ -47,6 +47,8 @@ before_script:
 #
 # ##### Done from scratch.
 
+    # Gmsh is required to pass some tests
+    - sudo apt-get install gmsh -qq -y
 
 # ##### Compile using conda
 #
