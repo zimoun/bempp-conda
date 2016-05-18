@@ -1,5 +1,6 @@
 # coding: utf8
 
+# used to avoid timeout by TravisCI
 import sys
 sys.stderr.write('Test: OSCR')
 
@@ -154,3 +155,6 @@ except:
      print('something wrong with Matplotlib')
 
 print('\n passed. DONE \n')
+
+# used to avoid timeout by TravisCI
+sys.stderr.write('done\n')
