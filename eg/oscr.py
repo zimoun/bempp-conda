@@ -1,5 +1,8 @@
 # coding: utf8
 
+import sys
+sys.stderr.write('Test: OSCR')
+
 print('running oscr.py')
 
 # # OSCR preconditioned high-frequency scattering
@@ -130,21 +133,24 @@ total_field = bempp.api.GridFunction(space, coefficients=x)
 # In[7]:
 
 # get_ipython().magic('matplotlib inline')
-from matplotlib import pyplot as plt
-from matplotlib import pylab
-pylab.rcParams['figure.figsize'] = (8.0, 8.0)
+try:
+    from matplotlib import pyplot as plt
+    from matplotlib import pylab
+    pylab.rcParams['figure.figsize'] = (8.0, 8.0)
 
-theta = np.linspace(-np.pi/2, np.pi/2, 400)
-points = np.array([np.cos(theta), np.sin(theta), np.zeros(len(theta))])
+    theta = np.linspace(-np.pi/2, np.pi/2, 400)
+    points = np.array([np.cos(theta), np.sin(theta), np.zeros(len(theta))])
 
-dlp_far_field = bempp.api.operators.far_field.helmholtz.double_layer(space, points, k)
-far_field = dlp_far_field * total_field
-max_incident = np.abs(dirichlet_grid_fun.coefficients).max()
-radiation_pattern = (np.abs(far_field/max_incident)**2).ravel()
-db_pattern = 10 * np.log10(4 * np.pi * radiation_pattern)
+    dlp_far_field = bempp.api.operators.far_field.helmholtz.double_layer(space, points, k)
+    far_field = dlp_far_field * total_field
+    max_incident = np.abs(dirichlet_grid_fun.coefficients).max()
+    radiation_pattern = (np.abs(far_field/max_incident)**2).ravel()
+    db_pattern = 10 * np.log10(4 * np.pi * radiation_pattern)
 
-plt.polar(theta, db_pattern)
-plt.title('RCS (DB)')
-#plt.show(block=False)
+    plt.polar(theta, db_pattern)
+    plt.title('RCS (DB)')
+    #plt.show(block=False)
+except:
+     print('something wrong with Matplotlib')
 
 print('\n passed. DONE \n')

@@ -1,5 +1,8 @@
 # coding: utf8
 
+import sys
+sys.stderr.write('Test: Maxwell')
+
 print('running maxwell.py')
 
 # # Electromagnetic scattering from a screen
@@ -173,18 +176,21 @@ print('  -> bempp computations done.')
 # In[15]:
 
 # get_ipython().magic('matplotlib inline')
-import matplotlib
-from matplotlib import pyplot as plt
-# Adjust the figure size in IPython
-matplotlib.rcParams['figure.figsize'] = (10.0, 8.0)
+try:
+    import matplotlib
+    from matplotlib import pyplot as plt
+    # Adjust the figure size in IPython
+    matplotlib.rcParams['figure.figsize'] = (10.0, 8.0)
 
-fig = plt.figure()
-plt.imshow(squared_field_density.reshape((nx,nz)).T,
-           cmap='coolwarm', origin='lower',
-           extent=[-extent, extent, -extent,extent])
-plt.colorbar()
-plt.title("Squared Electric Field Density")
-#plt.show(block=False)
-fig.savefig('maxwell.png',  bbox_inches='tight')
+    fig = plt.figure()
+    plt.imshow(squared_field_density.reshape((nx,nz)).T,
+               cmap='coolwarm', origin='lower',
+               extent=[-extent, extent, -extent,extent])
+    plt.colorbar()
+    plt.title("Squared Electric Field Density")
+    #plt.show(block=False)
+    fig.savefig('maxwell.png',  bbox_inches='tight')
+except:
+    print('something wrong with Matplotlib')
 
 print('\n passed. DONE \n')

@@ -1,5 +1,8 @@
 # coding: utf8
 
+import sys
+sys.stderr.write('Test: Laplace')
+
 print('running laplace.py')
 
 # # Solving a Laplace problem with Dirichlet boundary conditions
@@ -151,15 +154,18 @@ u_evaluated[radius>1] = np.nan
 print('  -> bempp computations done.')
 
 # Plot the image
-import matplotlib
-matplotlib.rcParams['figure.figsize'] = (5.0, 4.0) # Adjust the figure size in IPython
+try:
+    import matplotlib
+    matplotlib.rcParams['figure.figsize'] = (5.0, 4.0) # Adjust the figure size in IPython
 
-from matplotlib import pyplot as plt
+    from matplotlib import pyplot as plt
 
-fig = plt.figure()
-plt.imshow(np.log(np.abs(u_evaluated.T)), extent=(-1,1,-1,1),origin='lower')
-plt.title('Computed solution')
-#plt.show(block=False)
-fig.savefig('laplace.png',  bbox_inches='tight')
+    fig = plt.figure()
+    plt.imshow(np.log(np.abs(u_evaluated.T)), extent=(-1,1,-1,1),origin='lower')
+    plt.title('Computed solution')
+    #plt.show(block=False)
+    fig.savefig('laplace.png',  bbox_inches='tight')
+except:
+    print('something wrong with Matplotlib')
 
 print('\n passed. DONE \n')

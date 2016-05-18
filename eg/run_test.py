@@ -9,6 +9,9 @@ print(bempp.api._config.version)
 print(bempp.api.__version__)
 # coding: utf8
 
+import sys
+sys.stderr.write('Test: Laplace')
+
 print('running laplace.py')
 
 # # Solving a Laplace problem with Dirichlet boundary conditions
@@ -171,13 +174,14 @@ try:
     plt.title('Computed solution')
     #plt.show(block=False)
     fig.savefig('laplace.png',  bbox_inches='tight')
-
 except:
     print('something wrong with Matplotlib')
 
 print('\n passed. DONE \n')
-
 # coding: utf-8
+
+import sys
+sys.stderr.write('Test: Scattering')
 
 print('running scattering.py')
 
@@ -360,6 +364,9 @@ except:
 
 print('\n passed. DONE \n')
 # coding: utf8
+
+import sys
+sys.stderr.write('Test: Maxwell')
 
 print('running maxwell.py')
 

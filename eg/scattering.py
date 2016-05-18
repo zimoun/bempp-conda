@@ -1,5 +1,8 @@
 # coding: utf-8
 
+import sys
+sys.stderr.write('Test: Scattering')
+
 print('running scattering.py')
 
 # # Scattering from a sphere using a combined direct formulation
@@ -166,14 +169,17 @@ print('  -> bempp computations done.')
 
 # get_ipython().magic('matplotlib inline')
 # Plot the image
-from matplotlib import pyplot as plt
-fig = plt.figure(figsize =(10, 8))
-plt.imshow(np.real(u_evaluated.T),extent=[-3, 3, -3, 3])
-plt.xlabel('x')
-plt.ylabel('y')
-plt.colorbar()
-plt.title("Scattering from the unit sphere, solution in plane z=0")
-#plt.show(block=False)
-fig.savefig('scattering.png',  bbox_inches='tight')
+try:
+    from matplotlib import pyplot as plt
+    fig = plt.figure(figsize =(10, 8))
+    plt.imshow(np.real(u_evaluated.T),extent=[-3, 3, -3, 3])
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.colorbar()
+    plt.title("Scattering from the unit sphere, solution in plane z=0")
+    #plt.show(block=False)
+    fig.savefig('scattering.png',  bbox_inches='tight')
+except:
+    print('something wrong with Matplotlib')
 
 print('\n passed. DONE \n')
