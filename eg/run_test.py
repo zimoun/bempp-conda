@@ -160,18 +160,23 @@ u_evaluated[radius>1] = np.nan
 print('  -> bempp computations done.')
 
 # Plot the image
-import matplotlib
-matplotlib.rcParams['figure.figsize'] = (5.0, 4.0) # Adjust the figure size in IPython
+try:
+    import matplotlib
+    matplotlib.rcParams['figure.figsize'] = (5.0, 4.0) # Adjust the figure size in IPython
 
-from matplotlib import pyplot as plt
+    from matplotlib import pyplot as plt
 
-fig = plt.figure()
-plt.imshow(np.log(np.abs(u_evaluated.T)), extent=(-1,1,-1,1),origin='lower')
-plt.title('Computed solution')
-#plt.show(block=False)
-fig.savefig('laplace.png',  bbox_inches='tight')
+    fig = plt.figure()
+    plt.imshow(np.log(np.abs(u_evaluated.T)), extent=(-1,1,-1,1),origin='lower')
+    plt.title('Computed solution')
+    #plt.show(block=False)
+    fig.savefig('laplace.png',  bbox_inches='tight')
+
+except:
+    print('something wrong with Matplotlib')
 
 print('\n passed. DONE \n')
+
 # coding: utf-8
 
 print('running scattering.py')
@@ -340,15 +345,18 @@ print('  -> bempp computations done.')
 
 # get_ipython().magic('matplotlib inline')
 # Plot the image
-from matplotlib import pyplot as plt
-fig = plt.figure(figsize =(10, 8))
-plt.imshow(np.real(u_evaluated.T),extent=[-3, 3, -3, 3])
-plt.xlabel('x')
-plt.ylabel('y')
-plt.colorbar()
-plt.title("Scattering from the unit sphere, solution in plane z=0")
-#plt.show(block=False)
-fig.savefig('scattering.png',  bbox_inches='tight')
+try:
+    from matplotlib import pyplot as plt
+    fig = plt.figure(figsize =(10, 8))
+    plt.imshow(np.real(u_evaluated.T),extent=[-3, 3, -3, 3])
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.colorbar()
+    plt.title("Scattering from the unit sphere, solution in plane z=0")
+    #plt.show(block=False)
+    fig.savefig('scattering.png',  bbox_inches='tight')
+except:
+    print('something wrong with Matplotlib')
 
 print('\n passed. DONE \n')
 # coding: utf8
@@ -526,18 +534,21 @@ print('  -> bempp computations done.')
 # In[15]:
 
 # get_ipython().magic('matplotlib inline')
-import matplotlib
-from matplotlib import pyplot as plt
-# Adjust the figure size in IPython
-matplotlib.rcParams['figure.figsize'] = (10.0, 8.0)
+try:
+    import matplotlib
+    from matplotlib import pyplot as plt
+    # Adjust the figure size in IPython
+    matplotlib.rcParams['figure.figsize'] = (10.0, 8.0)
 
-fig = plt.figure()
-plt.imshow(squared_field_density.reshape((nx,nz)).T,
-           cmap='coolwarm', origin='lower',
-           extent=[-extent, extent, -extent,extent])
-plt.colorbar()
-plt.title("Squared Electric Field Density")
-#plt.show(block=False)
-fig.savefig('maxwell.png',  bbox_inches='tight')
+    fig = plt.figure()
+    plt.imshow(squared_field_density.reshape((nx,nz)).T,
+               cmap='coolwarm', origin='lower',
+               extent=[-extent, extent, -extent,extent])
+    plt.colorbar()
+    plt.title("Squared Electric Field Density")
+    #plt.show(block=False)
+    fig.savefig('maxwell.png',  bbox_inches='tight')
+except:
+    print('something wrong with Matplotlib')
 
 print('\n passed. DONE \n')
