@@ -41,8 +41,7 @@ before_install:
 #
 #
 before_script:
-
-    #- bash .compile_hack_to_bypass_log_limit.sh
+    - bash .compile_hack_to_bypass_log_limit.sh
 #
 #
 # ##### Done from scratch.
