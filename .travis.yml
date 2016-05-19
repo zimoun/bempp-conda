@@ -22,7 +22,6 @@ before_install:
     - sudo apt-get install g++ -qq -y
     - sudo apt-get install cmake git make -qq -y
     - sudo apt-get install python-dev -qq -y
-    - sudo apt-get install doxygen -qq -y
 
     - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh -q
     - chmod +x miniconda.sh
@@ -41,7 +40,7 @@ before_install:
 #
 #
 before_script:
-    - bash .compile_hack_to_bypass_log_limit.sh
+    #- bash .compile_hack_to_bypass_log_limit.sh
 #
 #
 # ##### Done from scratch.
